@@ -27,12 +27,14 @@ btn3.addEventListener('click', () => {
   alert("Hello World Too");
 });
 
-function alertFunction() {
-    alert("YAY! YOU DID IT!");
+function alertFunction(vari, varia) {
+    alert(vari.concat(varia));
   }
 
 const btn4 = document.querySelector('#btn4');
-btn4.addEventListener('click', alertFunction);
+btn4.addEventListener('click', function() {
+  alertFunction("p1", "p2");
+});
 
 const btn5 = document.querySelector('#btn5');
 btn5.addEventListener('click', function (e) {

@@ -47,8 +47,6 @@ function game () {
         console.log(`You Lost! you ${you}, computer ${machine} and ${draw} draws.`);
     } else { console.log(`DRAW! you ${you}, computer ${machine} and ${draw} draws.`); }
 }
-   
-  
   
  game();
  // playRound(playerSelection, computerSelection);
