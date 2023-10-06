@@ -1,30 +1,54 @@
 // Get the grid container element
 const gridContainer = document.querySelector('.grid-container');
+let howManySquareSquares
 
 // Create a 16x16 grid
-for (let i = 0; i < 16 * 16; i++) {
-    const gridItem = document.createElement('div');
-    gridItem.classList.add('grid-item');
-    gridContainer.appendChild(gridItem);
+function createGrid() {
+    if (howManySquareSquares == undefined) {
+        howManySquareSquares = 16;
+    }
+    for (let i = 0; i < howManySquareSquares ** 2; i++) {
+        const gridSquare = document.createElement('div');
+        gridSquare.classList.add('grid-square');
+        gridContainer.appendChild(gridSquare);
+    }
+    gridContainer.style.padding = '40px';
+    gridContainer.style.display = 'grid';
+    gridContainer.style.gridTemplateColumns = `repeat(${howManySquareSquares}, 2em)`;
+    gridContainer.style.gridTemplateRows = `repeat(${howManySquareSquares}, 2em)`;
+    addMouseOverListner();
+}
+createGrid();
+
+function addMouseOverListner() {
+    const gridSquareS = document.querySelectorAll('.grid-square');
+    gridSquareS.forEach((gridSquare) => {
+        // and for each one we add a 'click' listener
+        gridSquare.addEventListener('mouseover', () => {
+            console.log("teste ok");
+            gridSquare.classList.add('grid-square-hover');
+        })
+    });
 }
 
-const gridItemS = document.querySelectorAll('.grid-item');
-gridItemS.forEach((gridItem) => {
-  
-    // and for each one we add a 'click' listener
-    gridItem.addEventListener('mouseover', () => {
-        console.log("teste ok");
-        gridItem.classList.add('grid-item-hover');
-    })
-});
+function removeGrid() {
+    const Squares = document.querySelectorAll('.grid-square');
+    Squares.forEach(square => {
+        square.remove();
+    });
+}
 
-// const gridSquareHoverS = document.getElementsByClassName('grid-item');
-// for (let i = 0; i < gridSquareHoverS.length; i += 2) {
-//     console.log(gridSquareHoverS[i]);
-//     gridSquareHoverS[i].classList.add('grid-item-even')
-// }
-// console.log(typeof gridSquareHoverS);
-// gridSquareHoverS.array.forEach(gridSquareHover => {
-//         gridSquareHover.addEventListner('hover', alerta);
-        
-//     });
+const button = document.getElementById('btn-squares');
+button.addEventListener('click', () => {
+    howManySquareSquares = prompt();
+    let min = 8;
+    let max = 88;
+    console.log(typeof howManySquareSquares,howManySquareSquares, typeof min, min, typeof max, max);
+    if (howManySquareSquares > min && howManySquareSquares < max) {
+        removeGrid();
+        createGrid();
+    } else { 
+        return alert(`o valor precisa estar entre 8 e 88!`); 
+    }
+
+});
