@@ -44,7 +44,7 @@ button.addEventListener('click', () => {
     let min = 8;
     let max = 88;
     console.log(typeof howManySquareSquares,howManySquareSquares, typeof min, min, typeof max, max);
-    if (howManySquareSquares > min && howManySquareSquares < max) {
+    if (howManySquareSquares >= min && howManySquareSquares <= max) {
         removeGrid();
         createGrid();
     } else { 
