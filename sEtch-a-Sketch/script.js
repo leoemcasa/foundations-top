@@ -14,8 +14,8 @@ function createGrid() {
     }
     gridContainer.style.padding = '40px';
     gridContainer.style.display = 'grid';
-    gridContainer.style.gridTemplateColumns = `repeat(${howManySquareSquares}, 2em)`;
-    gridContainer.style.gridTemplateRows = `repeat(${howManySquareSquares}, 2em)`;
+    gridContainer.style.gridTemplateColumns = `repeat(${howManySquareSquares}, 8px)`;
+    gridContainer.style.gridTemplateRows = `repeat(${howManySquareSquares}, 8px)`;
     addMouseOverListner();
 }
 createGrid();
