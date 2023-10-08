@@ -1,0 +1,22 @@
+output {
+    display: inline;
+  }
+
+.digits {
+    justify-content: center;
+    display: grid;
+    background-color: beige;
+    grid-template-columns: repeat(4, 2.5em);
+    grid-template-rows: repeat(4, 2.5em);
+    gap: 1px;
+}
+
+.disp {
+    justify-content: center;
+    display: grid;
+    height: 5px;
+    padding: 8px;
+    background-color: white;
+    gap: 2px;
+    margin: 5px;
+}
