@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css?family=Caesar+Dressing:300,400");
+
+/* @font-face {
+    font-family: "Booter - Zero Zero";
+    src: url("Fonts/Booter - Zero Zero.woff") format("woff"),
+         url("Fonts/Booter - Zero Zero.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+} */
+
+/* * {
+    box-sizing: border-box;
+    /* font-family: Raleway;
+    color: #777; 
+} */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+  --border-btn: 1px #596D48;
+  --border-input: 1px #E5E7EB;
+}
+
+.theme-name::after {
+  content: var(--theme-name);
+}
+
+.container {
+  display: flex;
+  background-color: black;
+  height: 44rem;
+  justify-content: center;
+}
+
+.content-left {
+  display: flex;
+  flex-direction: column;
+  background-image: url("halie-west.jpg");
+  /* background-blend-mode: multiply; */
+  background-size:cover;
+  background-repeat: no-repeat;
+  width: 25%;
+}
+
+.footer {
+  display: flex;
+  flex: 1;
+  /* height: 1rem; */
+  margin-top: 22rem;
+  width: 100%;
+  justify-content: center;
+  color: #E5E7EB;
+  align-items: center;
+  align-content: end;
+}
+
+.odin {
+  display: flex;
+  direction: ltr;
+  margin-top: 13rem;
+  height: 8rem;
+  background-color: rgba(0, 0, 0, .4);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+
+.odin-image {
+  height: 110px;
+  width: 80px;
+  /* border-radius: 50%; */
+}
+
+.odin-name {
+  margin: 0;
+  font-size: 4em;
+  font-family: "Caesar Dressing";
+  font-weight: lighter;
+  color: white;
+}
+
+
+
+/* .footer > div {
+  flex-grow: 1;
+  text-align: center;
+} */
+
+.content-right {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(240, 240, 240);
+  width: 40%;
+  height: 100%;
+}
+
+.section-header {
+  font-size: large;
+  padding-top: 7rem;
+}
+
+.right-padding {
+  padding: 2em;
+}
+
+.new-right {
+  all: initial;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  background-color: rgba(232, 232, 13, 0.05);
+}
+
+.new-right legend {
+  min-width: 90%;
+}
+
+.new-right label { 
+  display: block;
+  font-size: small;
+}
+
+.new-right textarea {
+  width: 20%;
+  max-height: 1rem;
+}
+
+.new-right-l0 {
+  display: flex;
+  width: 100%;
+  height: 1rem;
+  padding-top: 1rem;
+  font-family: "handlee";
+  font-size: 1rem;
+}
+
+.new-right-r0 {
+  display: flex;
+  width: 100%;
+  height: 1rem;
+  padding-top: 1rem;
+}
+
+.new-right-l {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-left: 1rem;
+}
+
+.new-right-l1 {
+  display: flex;
+  width: 100%;
+  padding-top: 1.5rem;
+}
+
+.new-right-l2 {
+  display: flex;
+  width: 100%;
+}
+
+.new-right-l3 {
+  display: flex;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.new-right-l5 {
+  display: flex;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.new-right-l6 {
+  display: flex;
+  width: 100%;
+  padding-bottom: 1.5rem;
+}
+
+.new-right-r {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.new-right-r1 {
+  display: flex;
+  width: 100%;
+  padding-top: 1.5rem;
+}
+
+.new-right-r2 {
+  display: flex;
+  width: 100%;
+}
+
+.new-right-r3 {
+  display: flex;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.new-right-r5 {
+  display: flex;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.new-right-r6 {
+  display: flex;
+  width: 100%;
+  padding-bottom: 1.5rem;
+}
+
+.new-right label {
+  font-size: .7rem;
+}
+
+.new-right input {
+  border-color: var(--border-input);
+
+}
+
+.new-right input:focus {
+  border-color: blue;
+  background-color: bisque;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.greet-btn {
+  display: flex;
+  padding: .5rem;
+  margin: 2rem;
+  color: white;
+  background-color:darkgreen;
+  border-radius: 7%;
+  border-color: var(--border-btn);
+}
+
+.have-account {
+  display: flex;
+}
