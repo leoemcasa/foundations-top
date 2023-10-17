@@ -1,4 +1,4 @@
-const myLibrary = [];
+var myLibrary = [];
 
 function Book(title, author, pages, read) {
     this.title = title
@@ -16,23 +16,36 @@ addBookToLibrary('O Estrangeiro', 'Camus', 90, 0);
 addBookToLibrary('Autobiografia', 'Chesterton', 90, 1);
 
 function generateTable() {
+  cleanTable();
   // creates a <table> element and a <tbody> element
   const tbl = document.createElement("table");
+  tbl.setAttribute ("id", "myTable");
   const tblBody = document.createElement("tbody");
 
   // creating all cells
-  let i = 0;
+  var i = 0;
   myLibrary.forEach(book => {
 
     // creates a table row
     const row = document.createElement("tr");
 
-    for (let j = 0; j < book.length; j++) {
+    for (var j = 0; j < book.length + 1; j++) {
       // Create a <td> element and a text node, make the text
       // node the contents of the <td>, and put the <td> at
       // the end of the table row
       const cell = document.createElement("td");
-      const cellText = document.createTextNode(myLibrary[i][j]);
+      var cellText;
+      if (j == book.length) {
+        cellText = document.createElement('button');
+        cellText.innerText = 'del';
+        cellText.id = [i, j];
+        cellText.addEventListener('click', () => {
+          deleteRow(cellText.id);
+        });
+        // document.querySelector('.btn-cell').appendChild(newBtn);
+      } else {
+        cellText = document.createTextNode(myLibrary[i][j]);
+      }
       cell.appendChild(cellText);
       row.appendChild(cell);
     }
@@ -50,10 +63,34 @@ function generateTable() {
   tbl.setAttribute("border", "2");
 }
 
+// function deleteRow (rowColumn) {
+//   console.log(rowColumn);
+//   document.getElementById("myTable").deleteRow(0);
+// }
+
+function deleteRow (rowColumn) {
+  let [a,,b] = Array.from(rowColumn);
+  let myLibraryRowDeleted = [];
+
+  for (let k = 0; k < myLibrary.length; k++) {
+    if (k != a) {
+      myLibraryRowDeleted.push(myLibrary[k]);
+    }
+  }
+
+  myLibrary = myLibraryRowDeleted;
+  console.log(myLibrary, typeof myLibrary);
+  console.log(myLibraryRowDeleted, typeof myLibraryRowDeleted);
+  generateTable();
+}
+
+
 function cleanTable() {
-  const child = document.querySelector('#container-list-books');
-  console.log(child);
-  child.removeChild(child.firstElementChild);
+  const containerOfTable = document.getElementById('container-list-books');
+  const tableToDelete = document.getElementById("myTable");
+  if (tableToDelete != null) {
+    containerOfTable.removeChild(tableToDelete);
+  }
 }
 
 const form = document.getElementById('form-book-id')
