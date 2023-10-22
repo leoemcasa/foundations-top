@@ -24,6 +24,8 @@ html, body {
 
 .item {
     background-color: antiquewhite;
+    color: antiquewhite;
+    font-size: .01px;
 }
 
 .item1 {
@@ -60,4 +62,20 @@ html, body {
 
 .item9 {
     grid-area: item9; /* 3 / 3 / 4 / 4; */
+}
+
+.item-class-x {
+    background-image: url("tictactoeXb.png");
+    background-blend-mode: multiply;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 7.3rem;
+}
+
+.item-class-o {
+    background-image: url("tictactoeO.png");
+    background-blend-mode: multiply;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 7.3rem;
 }
