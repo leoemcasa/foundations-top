@@ -1,15 +1,32 @@
 var myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-    this.info = () => [title, author, pages, read]
+function addBookToLibrary(title, author, pages, read) {
+  myLibrary[myLibrary.length] = new Book(title, author, pages, read);
+}
+
+class Book {
+
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
   }
 
-function addBookToLibrary(title, author, pages, read) {
-  myLibrary.push([title, author, pages, read]);
+  info = () => [title, author, pages, read];
+
+  // get name() {
+  //   return this._name;
+  // }
+
+  // set name(value) {
+  //   if (value.length < 4) {
+  //     alert("Name is too short.");
+  //     return;
+  //   }
+  //   this._name = value;
+  // }
+
 }
 
 addBookToLibrary('O Estrangeiro', 'Camus', 90, 0);
@@ -23,19 +40,19 @@ function generateTable() {
   const tblBody = document.createElement("tbody");
 
   // creating all cells
-  var i = 0;
+  let i = 0;
   myLibrary.forEach(book => {
-
     // creates a table row
     const row = document.createElement("tr");
-
-    for (var j = 0; j < book.length + 1; j++) {
+    
+    let objKeys = Object.keys(myLibrary[i]);
+    for (var j = 0; j < objKeys.length; j++) { // 1 do botao delete
       // Create a <td> element and a text node, make the text
       // node the contents of the <td>, and put the <td> at
       // the end of the table row
       const cell = document.createElement("td");
       var cellText;
-      if (j == book.length) {
+      if (j == objKeys.length - 1) {
         cellText = document.createElement('button');
         cellText.innerText = 'del';
         cellText.id = [i, j];
@@ -44,7 +61,7 @@ function generateTable() {
         });
         // document.querySelector('.btn-cell').appendChild(newBtn);
       } else {
-        cellText = document.createTextNode(myLibrary[i][j]);
+        cellText = document.createTextNode(Object.values( myLibrary[ i ] )[ j + 1 ]);
       }
       cell.appendChild(cellText);
       row.appendChild(cell);
@@ -63,11 +80,6 @@ function generateTable() {
   tbl.setAttribute("border", "2");
 }
 
-// function deleteRow (rowColumn) {
-//   console.log(rowColumn);
-//   document.getElementById("myTable").deleteRow(0);
-// }
-
 function deleteRow (rowColumn) {
   let [a,,b] = Array.from(rowColumn);
   let myLibraryRowDeleted = [];
@@ -79,8 +91,6 @@ function deleteRow (rowColumn) {
   }
 
   myLibrary = myLibraryRowDeleted;
-  console.log(myLibrary, typeof myLibrary);
-  console.log(myLibraryRowDeleted, typeof myLibraryRowDeleted);
   generateTable();
 }
 
@@ -105,10 +115,5 @@ form.addEventListener('submit', function(event) {
   cleanTable()
   generateTable()
 })
-
-// const button = document.querySelector('button');
-// button.addEventListener('click', () => {
-//   addBookToLibrary('Auto', 'Chest', 99, 1);
-// })
 
 generateTable();
