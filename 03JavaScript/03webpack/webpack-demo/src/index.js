@@ -1,4 +1,4 @@
-// import _ from 'lodash';
+import _ from 'lodash';
 // import your function
 import myName from './myName';
 
@@ -12,13 +12,13 @@ function component() {
 
 document.body.appendChild(component());
 
-// function componentLodashWebpack() {
-//     const element = document.createElement('div');
+function componentLodashWebpack() {
+    const element = document.createElement('div');
   
-//     // Lodash, now imported by this script
-//     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    // Lodash, now imported by this script
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
   
-//     return element;
-// }
+    return element;
+}
   
-// document.body.appendChild(componentLodashWebpack());
+document.body.appendChild(componentLodashWebpack());
